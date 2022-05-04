@@ -6,6 +6,7 @@
       :width="240"
       show-trigger="arrow-circle"
       bordered
+      :collapsed="isCollapsed"
     >
       <Logo />
       <Menus />
@@ -71,6 +72,15 @@ const headerOptions: Ref<OptionsItem[]> = ref([
     icon: renderIcon(LogoutIcon),
   },
 ]);
+const isCollapsed: Ref<boolean> = ref(false);
+window.addEventListener("resize", (e) => {
+  const clientWidth = document.body.clientWidth;
+  if (clientWidth <= 600) {
+    isCollapsed.value = true;
+    return;
+  }
+  isCollapsed.value = false;
+});
 </script>
 
 <style lang="less" scoped>

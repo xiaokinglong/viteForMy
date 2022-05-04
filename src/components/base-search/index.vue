@@ -53,7 +53,6 @@ const formRef = ref<FormInst | null>(null);
 
 const emit = defineEmits(['submit']);
 const baseList: Ref<string[]> = ref(["light-green", "green", "green"]);
-
 const handleValidateClick = (e: MouseEvent) => {
   e.preventDefault();
   formRef.value?.validate((errors) => {
@@ -68,6 +67,7 @@ const handleValidateClick = (e: MouseEvent) => {
     }
   });
 };
+
 </script>
 
 <style lang="less" scoped>
