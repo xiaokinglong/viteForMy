@@ -17,6 +17,10 @@ const routes: RouteRecordRaw[] = [
         path: '/download',
         component: import('/src/pages/download/index.vue'),
       },
+      {
+        path: "/demo",
+        component: import('/src/pages/demo/index.vue'),
+      }
     ]
   },
 ];
