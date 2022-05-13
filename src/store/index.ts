@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import type { DefineSetupStoreOptions } from "pinia";
 
-export const store = defineStore("root", {
+export const rootStore = defineStore("root", {
   state: () => {
     return {
       counter: 0,

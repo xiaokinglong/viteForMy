@@ -15,7 +15,7 @@
 import { ref } from "vue";
 import type { Ref } from "vue";
 import BaseSearch from "/src/components/base-search/index.vue";
-import { store } from "/src/store/index.ts";
+import { rootStore } from "/src/store/index.ts";
 import { storeToRefs } from 'pinia';
 interface BaseType {
   label: string;
@@ -45,12 +45,8 @@ const formList: Ref<BaseType[]> = ref([
   },
 ]);
 
-// const { counter , updateCounter } = storeToRefs(store());
-const stores = store();
-const { counter } = storeToRefs(stores);
-// const stores = storeToRefs(store());
-console.log(stores);
-// console.log(stores.updateCounter);
+const store = rootStore();
+const { counter } = storeToRefs(store); // 使用 storeToRefs 进行解构才是响应式的
 const formValue = ref({
   name: "",
   age: "",
