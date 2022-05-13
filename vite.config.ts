@@ -4,6 +4,7 @@ import legacy from "@vitejs/plugin-legacy";
 import visualizer from "rollup-plugin-visualizer";
 import Compression from "vite-compression-plugin"; // gzip  压缩
 import { resolve } from "path";
+import AutoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig({
   resolve: {
@@ -33,6 +34,9 @@ export default defineConfig({
       open: true,
       gzipSize: true,
       brotliSize: true,
+    }),
+    AutoImport({ // 配置自动导入
+      imports: ['vue']
     }),
   ],
 });
