@@ -34,11 +34,37 @@
 import { ref, defineProps, defineEmits } from "vue";
 import type { Ref } from "vue";
 import { FormInst } from "naive-ui";
+interface BaseType {
+  label: string;
+  key: string;
+  path: string;
+  placeholder?: string;
+}
+// const { formList, formValue, rules } = defineProps<{
+//   formList: BaseType[]; // 定义propos的类型
+// }>({
+//   formList: {
+//     type: Array,
+//     default() {
+//       return [];
+//     },
+//   },
+//   formValue: {
+//     type: Object,
+//     default: {},
+//   },
+//   rules: {
+//     type: Object,
+//     default: {},
+//   },
+// });
 
 const { formList, formValue, rules } = defineProps({
   formList: {
     type: Array,
-    default: [],
+    default() {
+      return [];
+    },
   },
   formValue: {
     type: Object,
@@ -51,14 +77,14 @@ const { formList, formValue, rules } = defineProps({
 });
 const formRef = ref<FormInst | null>(null);
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits(["submit"]);
 const baseList: Ref<string[]> = ref(["light-green", "green", "green"]);
 const handleValidateClick = (e: MouseEvent) => {
   e.preventDefault();
   formRef.value?.validate((errors) => {
     if (!errors) {
       console.log(formValue);
-      emit('submit', formValue)
+      emit("submit", formValue);
       // formValue
       // message.success("Valid");
     } else {
@@ -67,7 +93,6 @@ const handleValidateClick = (e: MouseEvent) => {
     }
   });
 };
-
 </script>
 
 <style lang="less" scoped>

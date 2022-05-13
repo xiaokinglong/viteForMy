@@ -13,6 +13,10 @@ const routes: RouteRecordRaw[] = [
         path: '/statistical',
         component: import('/src/pages/home/index.vue'),
       },
+      {
+        path: '/download',
+        component: import('/src/pages/download/index.vue'),
+      },
     ]
   },
 ];

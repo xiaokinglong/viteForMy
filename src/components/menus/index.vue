@@ -36,8 +36,9 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: "寻羊冒险记",
+    label: "下载",
     key: "a-wild-sheep-chase",
+    href: "/download",
   },
   {
     label: "舞，舞，舞",
