@@ -7,6 +7,7 @@ import { resolve } from "path";
 import AutoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig({
+  envDir: "./",
   resolve: {
     alias: {
       src: resolve(__dirname, "src"),
